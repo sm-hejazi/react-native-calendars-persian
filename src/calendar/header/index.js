@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ActivityIndicator } from 'react-native';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, I18nManager } from 'react-native';
 import XDate from 'xdate';
 import PropTypes from 'prop-types';
 import styleConstructor from './style';
@@ -97,7 +97,7 @@ class CalendarHeader extends Component {
             ? this.props.renderArrow('left')
             : <Image
                 source={require('../img/previous.png')}
-                style={this.style.arrowImage}
+                style={[this.style.arrowImage,{transform:[{rotate: I18nManager.isRTL ? '180deg' : 0}]}]}
               />}
         </TouchableOpacity>
       );
@@ -112,7 +112,7 @@ class CalendarHeader extends Component {
             ? this.props.renderArrow('right')
             : <Image
                 source={require('../img/next.png')}
-                style={this.style.arrowImage}
+                style={[this.style.arrowImage,{transform:[{rotate: I18nManager.isRTL ? '180deg' : 0}]}]}
               />}
         </TouchableOpacity>
       );
